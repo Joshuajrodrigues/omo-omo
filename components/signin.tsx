@@ -42,14 +42,14 @@ const SigninForm = ({ callToAction }: { callToAction: CallToAction }) => {
                     control={form.control}
                     name="email"
                     render={({ field }) => (
-                        <FormItem>
+                        <FormItem className="flex flex-col justify-center items-center lg:flow-root">
                             <FormLabel className=" text-start">
                                 <TypographyH3>
                                     {cta} NOW
                                 </TypographyH3>
                             </FormLabel>
-                            <FormControl className="flex">
-                                <Input size={1} className="bg-white text-black lg:max-w-[680px]   " placeholder="Email address" {...field} />
+                            <FormControl >
+                                <Input size={1} className="bg-white text-black max-w-[400px] lg:max-w-[680px]   " placeholder="Email address" {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
