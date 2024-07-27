@@ -25,7 +25,7 @@ const OAuth = ({ callToAction }: { callToAction: CallToAction }) => {
                         width={24}
                         height={24}
                     />
-                    <span>
+                    <span className=' text-xl'>
                         {callToAction} with Google
                     </span>
                 </Button>
@@ -42,7 +42,7 @@ const OAuth = ({ callToAction }: { callToAction: CallToAction }) => {
             >
                 <Button className=' space-x-2 text-base font-semibold        w-64' type="submit">
                     <Github />
-                    <span>
+                    <span className=' text-xl'>
 
                         {callToAction} with Github
                     </span>

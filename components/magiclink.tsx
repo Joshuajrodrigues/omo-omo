@@ -40,10 +40,10 @@ const MagicLink = ({ callToAction }: { callToAction: CallToAction }) => {
                     name="email"
                     render={({ field }) => (
                         <FormItem className="flex flex-col justify-center items-center lg:flow-root">
-                            <FormLabel className=" text-start">
-                                <TypographyH3>
+                            <FormLabel className="text-2xl font-bold text-start">
+                                <>
                                     {cta} NOW
-                                </TypographyH3>
+                                </>
                             </FormLabel>
                             <FormControl >
                                 <Input size={1} className="bg-white text-black max-w-[400px] lg:max-w-[680px]   " placeholder="Email address" {...field} />
@@ -52,7 +52,7 @@ const MagicLink = ({ callToAction }: { callToAction: CallToAction }) => {
                         </FormItem>
                     )}
                 />
-                <Button className=" text-lg font-bold" type="submit">{cta}</Button>
+                <Button className=" text-xl font-bold" type="submit">{cta}</Button>
             </form>
         </Form>
     )
