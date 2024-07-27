@@ -25,7 +25,7 @@ const UserAuthForm = ({ callToAction }: { callToAction: CallToAction }) => {
                         <TypographyH4>Already have an account ? <Link className=" underline " href={'/signin'}>Sign in</Link> </TypographyH4>
                 }
                 <TypographyP>
-                    By clicking 'Get Started' you are indicating that you have read and agree to the Terms of Service and Privacy
+                    By clicking '{callToAction}' you are indicating that you have read and agree to the Terms of Service and Privacy
                 </TypographyP>
             </div>
 
