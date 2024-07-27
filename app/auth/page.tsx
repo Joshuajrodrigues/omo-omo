@@ -4,22 +4,25 @@ import { Input } from "@/components/ui/input"
 import login from '@/public/img/login.jpg'
 import { Button } from "@/components/ui/button"
 import { TypographyH1 } from "@/components/ui/typographyH1"
-import { TypographyH2 } from "@/components/ui/typographyH2"
+
 import { signIn } from "@/auth"
 import SigninForm from "@/components/signin"
 import OAuth from "@/components/oauth"
+import { TypographyP } from "@/components/ui/typographyP"
+import { TypographyH3 } from "@/components/ui/typographyH3"
+import { TypographyH4 } from "@/components/ui/typographyH4"
 const page = () => {
     return (
-        <div>
-            <Image src={login} className="" fill objectFit="cover" placeholder="blur" alt="movie theater" />
+        <div  >
+            <Image src={login} fill className=" object-cover" placeholder="blur" alt="movie theater" />
 
-            <div className=" m-5 absolute space-y-8 text-white text-center inset-0 flex flex-col items-center justify-center">
-                <TypographyH1>WELCOME TO OMO OMO</TypographyH1>
+            <div className="lg:pl-24 p-2 absolute space-y-8  w-full  text-white text-center inset-0 flex flex-col items-center justify-center lg:items-start lg:text-start lg:justify-end lg:mb-24 ">
+                <TypographyH1>WELCOME TO <br /> OMO OMO</TypographyH1>
                 <OAuth />
-                {/* <span>
-                    --OR--
-                </span>
-                <SigninForm /> */}
+                <SigninForm />
+                <TypographyP>
+                    By clicking 'Get Started' you are indicating that you have read and agree to the Terms of Service and Privacy
+                </TypographyP>
             </div>
 
         </div>

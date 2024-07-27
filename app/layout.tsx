@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { dmSans } from "@/components/fonts";
 import { auth, signOut } from "@/auth";
+import Navbar from "@/components/navbar";
 
 export const metadata: Metadata = {
   title: "Omo omo",
@@ -14,22 +15,12 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const session = await auth()
+
   return (
     <html lang="en">
       <body className={dmSans.className}>
-        {
-          !session?.user ? null :
+        <Navbar />
 
-            <form
-              action={async () => {
-                "use server"
-                await signOut()
-              }}
-            >
-              <button type="submit">Sign Out</button>
-            </form>
-        }
         {children}</body>
     </html>
   );

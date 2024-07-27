@@ -15,6 +15,8 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { signinWithMagickLink } from "@/actions/signin"
+import { TypographyH2 } from "@/components/ui/typographyH2"
+import { TypographyH3 } from "./ui/typographyH3"
 const formSchema = z.object({
     email: z.string().min(2).max(50),
 })
@@ -32,22 +34,26 @@ const SigninForm = () => {
 
     }
     return (
-        <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <Form {...form} >
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 text-center lg:text-start  w-full   ">
                 <FormField
                     control={form.control}
                     name="email"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>SIGN UP NOW</FormLabel>
-                            <FormControl>
-                                <Input className=" bg-white text-black" placeholder="Email address" {...field} />
+                            <FormLabel className=" text-start">
+                                <TypographyH3>
+                                    SIGN UP NOW
+                                </TypographyH3>
+                            </FormLabel>
+                            <FormControl className="flex">
+                                <Input size={1} className="bg-white text-black lg:max-w-[680px]   " placeholder="Email address" {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
                     )}
                 />
-                <Button type="submit">SIGN UP</Button>
+                <Button className=" text-base font-bold" type="submit">SIGN UP</Button>
             </form>
         </Form>
     )

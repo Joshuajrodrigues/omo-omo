@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { Github } from 'lucide-react';
 const OAuth = () => {
     return (
-        <div className=' space-y-2'>
+        <div className=' space-y-2 w-full  '>
             <form
                 action={async () => {
                     "use server"
@@ -16,7 +16,7 @@ const OAuth = () => {
 
                 }}
             >
-                <Button className=' space-x-2' type="submit">
+                <Button className=' space-x-2 text-base font-semibold w-64' type="submit">
                     <Image
                         src={"https://lh3.googleusercontent.com/COxitqgJr1sJnIDe8-jiKhxDx1FrYbtRHKJ9z_hELisAlapwE9LUPh6fcXIfb5vwpbMl4xl9H9TRFPc5NOO8Sb3VSgIBrfRYvW6cUA"}
                         alt='google'
@@ -24,7 +24,7 @@ const OAuth = () => {
                         height={24}
                     />
                     <span>
-                        Sign up with Google
+                        Sign in with Google
                     </span>
                 </Button>
             </form>
@@ -38,11 +38,11 @@ const OAuth = () => {
                     })
                 }}
             >
-                <Button className=' space-x-2' type="submit">
+                <Button className=' space-x-2 text-base font-semibold        w-64' type="submit">
                     <Github />
                     <span>
 
-                        Sign up with Github
+                        Sign in with Github
                     </span>
 
                 </Button>

@@ -9,7 +9,7 @@ export default async function Home() {
       omo omo :)
 
       {
-        !session?.user ? null : <Link href={'/admin'} />
+        !session?.user ? <Link href={'/auth'}>Sign in</Link> : <Link href={'/admin'} > Admin</Link>
       }
 
     </main>
