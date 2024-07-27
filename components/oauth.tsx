@@ -3,7 +3,8 @@ import React from 'react'
 import { Button } from './ui/button'
 import Image from 'next/image'
 import { Github } from 'lucide-react';
-const OAuth = () => {
+import { CallToAction } from './userAuthForm';
+const OAuth = ({ callToAction }: { callToAction: CallToAction }) => {
     return (
         <div className=' space-y-2 w-full  '>
             <form
@@ -24,7 +25,7 @@ const OAuth = () => {
                         height={24}
                     />
                     <span>
-                        Sign in with Google
+                        {callToAction} with Google
                     </span>
                 </Button>
             </form>
@@ -42,7 +43,7 @@ const OAuth = () => {
                     <Github />
                     <span>
 
-                        Sign in with Github
+                        {callToAction} with Github
                     </span>
 
                 </Button>

@@ -17,13 +17,15 @@ import { Input } from "@/components/ui/input"
 import { signinWithMagickLink } from "@/actions/signin"
 import { TypographyH2 } from "@/components/ui/typographyH2"
 import { TypographyH3 } from "./ui/typographyH3"
+import { CallToAction } from "./userAuthForm"
 const formSchema = z.object({
     email: z.string().min(2).max(50),
 })
 
 export type FormValues = z.infer<typeof formSchema>
 
-const SigninForm = () => {
+const SigninForm = ({ callToAction }: { callToAction: CallToAction }) => {
+    const cta = callToAction === "Sign in" ? "SIGN IN" : "SIGN UP"
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -43,7 +45,7 @@ const SigninForm = () => {
                         <FormItem>
                             <FormLabel className=" text-start">
                                 <TypographyH3>
-                                    SIGN UP NOW
+                                    {cta} NOW
                                 </TypographyH3>
                             </FormLabel>
                             <FormControl className="flex">

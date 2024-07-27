@@ -15,7 +15,7 @@ export default auth((req) => {
 
 
     if (!isLoggedIn && req.nextUrl.pathname.startsWith("/admin")) {
-        const newUrl = new URL("/auth", req.nextUrl.origin);
+        const newUrl = new URL("/signin", req.nextUrl.origin);
         return Response.redirect(newUrl);
     }
 
