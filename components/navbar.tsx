@@ -15,11 +15,20 @@ const Navbar = async () => {
                         BROWSE FILMS
                     </li>
                     {
-                        !session?.user ? <li>
-                            <Link href={'/auth'}>
-                                SIGN IN
-                            </Link>
-                        </li> :
+                        !session?.user ? <>
+                            <li>
+                                <Link href={'/signin'}>
+                                    SIGN IN
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href={'/signup'}>
+                                    SIGN UP
+                                </Link>
+                            </li>
+                        </>
+
+                            :
                             <>
                                 <li>
                                     MY LIST
