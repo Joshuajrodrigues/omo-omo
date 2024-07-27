@@ -1,25 +1,22 @@
 "use client"
 
-import { z } from "zod"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
 import { Button } from "@/components/ui/button"
 import {
     Form,
     FormControl,
-    FormDescription,
     FormField,
     FormItem,
     FormLabel,
-    FormMessage,
+    FormMessage
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { signinWithMagickLink } from "@/actions/signin"
-import { TypographyH2 } from "@/components/ui/typographyH2"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
+import { z } from "zod"
 import { TypographyH3 } from "./ui/typographyH3"
 import { CallToAction } from "./userAuthForm"
 const formSchema = z.object({
-    email: z.string().min(2).max(50),
+    email: z.string().email(),
 })
 
 export type FormValues = z.infer<typeof formSchema>
@@ -55,7 +52,7 @@ const SigninForm = ({ callToAction }: { callToAction: CallToAction }) => {
                         </FormItem>
                     )}
                 />
-                <Button className=" text-base font-bold" type="submit">SIGN UP</Button>
+                <Button className=" text-base font-bold" type="submit">{cta}</Button>
             </form>
         </Form>
     )
