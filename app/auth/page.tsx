@@ -1,32 +1,27 @@
 import Image from "next/image"
 import { Input } from "@/components/ui/input"
 
-import hero from '@/public/img/maninflowers.png'
+import login from '@/public/img/login.jpg'
 import { Button } from "@/components/ui/button"
 import { TypographyH1 } from "@/components/ui/typographyH1"
 import { TypographyH2 } from "@/components/ui/typographyH2"
 import { signIn } from "@/auth"
+import SigninForm from "@/components/signin"
+import OAuth from "@/components/oauth"
 const page = () => {
     return (
-        <div >
+        <div>
+            <Image src={login} className="" fill objectFit="cover" placeholder="blur" alt="movie theater" />
 
-            <form
-                action={async () => {
-                    "use server"
-                    await signIn("google")
-                }}
-            >
-                <button type="submit">Signin with Google</button>
-            </form>
+            <div className="absolute space-y-8 text-white text-left inset-0 flex flex-col items-center justify-center">
+                <TypographyH1>WELCOME TO OMO OMO</TypographyH1>
+                <OAuth />
+                <span>
+                    --OR--
+                </span>
+                <SigninForm />
+            </div>
 
-            <form
-                action={async () => {
-                    "use server"
-                    await signIn("github")
-                }}
-            >
-                <button type="submit">Signin with Github</button>
-            </form>
         </div>
     )
 }
