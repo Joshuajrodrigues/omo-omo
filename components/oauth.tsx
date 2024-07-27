@@ -25,9 +25,9 @@ const OAuth = ({ callToAction }: { callToAction: CallToAction }) => {
                         width={24}
                         height={24}
                     />
-                    <TypographyH4>
+                    <span>
                         {callToAction} with Google
-                    </TypographyH4>
+                    </span>
                 </Button>
             </form>
 
@@ -42,10 +42,10 @@ const OAuth = ({ callToAction }: { callToAction: CallToAction }) => {
             >
                 <Button className=' space-x-2 text-base font-semibold        w-64' type="submit">
                     <Github />
-                    <TypographyH4>
+                    <span>
 
                         {callToAction} with Github
-                    </TypographyH4>
+                    </span>
 
                 </Button>
             </form>
