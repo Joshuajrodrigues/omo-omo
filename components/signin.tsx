@@ -14,9 +14,12 @@ import {
     FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
+import { signinWithMagickLink } from "@/actions/signin"
 const formSchema = z.object({
     email: z.string().min(2).max(50),
 })
+
+export type FormValues = z.infer<typeof formSchema>
 
 const SigninForm = () => {
     const form = useForm<z.infer<typeof formSchema>>({
@@ -25,10 +28,8 @@ const SigninForm = () => {
             email: "",
         },
     })
-    function onSubmit(values: z.infer<typeof formSchema>) {
-        // Do something with the form values.
-        // ✅ This will be type-safe and validated.
-        console.log(values)
+    async function onSubmit(values: FormValues) {
+
     }
     return (
         <Form {...form}>
@@ -40,7 +41,7 @@ const SigninForm = () => {
                         <FormItem>
                             <FormLabel>SIGN UP NOW</FormLabel>
                             <FormControl>
-                                <Input className=" bg-white" placeholder="Email address" {...field} />
+                                <Input className=" bg-white text-black" placeholder="Email address" {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>

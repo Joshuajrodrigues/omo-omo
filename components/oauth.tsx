@@ -9,7 +9,11 @@ const OAuth = () => {
             <form
                 action={async () => {
                     "use server"
-                    await signIn("google")
+                    await signIn("google", {
+                        redirect: true,
+                        redirectTo: "/"
+                    })
+
                 }}
             >
                 <Button className=' space-x-2' type="submit">
@@ -28,7 +32,10 @@ const OAuth = () => {
             <form
                 action={async () => {
                     "use server"
-                    await signIn("github")
+                    await signIn("github", {
+                        redirect: true,
+                        redirectTo: "/"
+                    })
                 }}
             >
                 <Button className=' space-x-2' type="submit">

@@ -13,13 +13,13 @@ const page = () => {
         <div>
             <Image src={login} className="" fill objectFit="cover" placeholder="blur" alt="movie theater" />
 
-            <div className="absolute space-y-8 text-white text-left inset-0 flex flex-col items-center justify-center">
+            <div className=" m-5 absolute space-y-8 text-white text-center inset-0 flex flex-col items-center justify-center">
                 <TypographyH1>WELCOME TO OMO OMO</TypographyH1>
                 <OAuth />
-                <span>
+                {/* <span>
                     --OR--
                 </span>
-                <SigninForm />
+                <SigninForm /> */}
             </div>
 
         </div>
