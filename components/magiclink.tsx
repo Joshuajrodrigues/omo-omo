@@ -52,7 +52,7 @@ const MagicLink = ({ callToAction }: { callToAction: CallToAction }) => {
                         </FormItem>
                     )}
                 />
-                <Button className=" text-base font-bold" type="submit">{cta}</Button>
+                <Button className=" text-lg font-bold" type="submit">{cta}</Button>
             </form>
         </Form>
     )

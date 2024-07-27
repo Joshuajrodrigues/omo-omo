@@ -4,6 +4,7 @@ import { Button } from './ui/button'
 import Image from 'next/image'
 import { Github } from 'lucide-react';
 import { CallToAction } from './userAuthForm';
+import { TypographyH4 } from './ui/typographyH4';
 const OAuth = ({ callToAction }: { callToAction: CallToAction }) => {
     return (
         <div className=' space-y-2 w-full  '>
@@ -24,9 +25,9 @@ const OAuth = ({ callToAction }: { callToAction: CallToAction }) => {
                         width={24}
                         height={24}
                     />
-                    <span>
+                    <TypographyH4>
                         {callToAction} with Google
-                    </span>
+                    </TypographyH4>
                 </Button>
             </form>
 
@@ -41,10 +42,10 @@ const OAuth = ({ callToAction }: { callToAction: CallToAction }) => {
             >
                 <Button className=' space-x-2 text-base font-semibold        w-64' type="submit">
                     <Github />
-                    <span>
+                    <TypographyH4>
 
                         {callToAction} with Github
-                    </span>
+                    </TypographyH4>
 
                 </Button>
             </form>
