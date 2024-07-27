@@ -1,6 +1,6 @@
 "use server"
 import { signIn } from "@/auth"
-import { FormValues } from "@/components/signin"
+import { FormValues } from "@/components/magiclink"
 
 
 export const signinWithMagickLink = async (formData: FormValues) => {

@@ -21,7 +21,7 @@ const formSchema = z.object({
 
 export type FormValues = z.infer<typeof formSchema>
 
-const SigninForm = ({ callToAction }: { callToAction: CallToAction }) => {
+const MagicLink = ({ callToAction }: { callToAction: CallToAction }) => {
     const cta = callToAction === "Sign in" ? "SIGN IN" : "SIGN UP"
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -58,5 +58,5 @@ const SigninForm = ({ callToAction }: { callToAction: CallToAction }) => {
     )
 }
 
-export default SigninForm
+export default MagicLink
 
