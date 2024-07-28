@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import "./globals.css";
 import { dmSans } from "@/components/fonts";
-import { auth, signOut } from "@/auth";
+import { Toaster } from "@/components/ui/sonner"
 import Navbar from "@/components/navbar";
 
 export const metadata: Metadata = {
@@ -21,7 +21,9 @@ export default async function RootLayout({
       <body className={dmSans.className}>
         <Navbar />
 
-        {children}</body>
+        {children}
+        <Toaster />
+      </body>
     </html>
   );
 }

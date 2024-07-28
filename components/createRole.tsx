@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/dialog"
 import { Input } from '@/components/ui/input'
 import { createRole } from '@/actions/roles'
+import { toast } from "sonner"
 
 const CreateRole = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -38,6 +39,8 @@ const CreateRole = () => {
                                 const roleName: string = formData.get('roleName') as string;
 
                                 await createRole({ roleName })
+                                toast.success("Role has been created.")
+
                                 handleClose()
                             }}>
                                 <Input name='roleName' required aria-required />
