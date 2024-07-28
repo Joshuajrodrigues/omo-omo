@@ -1,6 +1,6 @@
-
+"use client"
 import { Button } from '@/components/ui/button'
-import React from 'react'
+import React, { useState } from 'react'
 import {
     Dialog,
     DialogContent,
@@ -13,19 +13,32 @@ import { Input } from '@/components/ui/input'
 import { createRole } from '@/actions/roles'
 
 const CreateRole = () => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleOpen = () => {
+        setIsOpen(true);
+    };
+
+    const handleClose = () => {
+        setIsOpen(false);
+    };
+
     return (
         <>
-            <Dialog>
-                <DialogTrigger>Create new role</DialogTrigger>
+            <Dialog open={isOpen}>
+                <DialogTrigger asChild>
+                    <Button onClick={handleOpen}>Create new role </Button>
+                </DialogTrigger>
                 <DialogContent>
                     <DialogHeader className='space-y-3'>
                         <DialogTitle>Create role</DialogTitle>
                         <DialogDescription >
                             <form className='space-y-3' action={async (formData: FormData) => {
-                                "use server"
+
                                 const roleName: string = formData.get('roleName') as string;
-                                console.log("roleName", roleName, formData);
-                                createRole({ roleName })
+
+                                await createRole({ roleName })
+                                handleClose()
                             }}>
                                 <Input name='roleName' required aria-required />
                                 <Button type="submit" >Create</Button>
