@@ -1,9 +1,14 @@
 
-import React from 'react'
+import CreateRole from '@/components/createRole'
 
 const page = () => {
     return (
-        <div>page</div>
+        <div className=' flex flex-col'>
+            <nav className=' ml-auto p-4'>
+                <CreateRole />
+            </nav>
+
+        </div>
     )
 }
 
