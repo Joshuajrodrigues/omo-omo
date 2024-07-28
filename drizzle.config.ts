@@ -8,9 +8,10 @@ export default defineConfig({
     out: './supabase/migrations',
     dialect: 'postgresql',
     dbCredentials: {
-        url: process.env.DATABASE_URL!,
+        url: `${process.env.DATABASE_URL!}`,
+        // ssl: "verify-full",
         database: 'postgres',
-        port: 5432,
+        port: 6543,
         host: process.env.DATABASE_HOST!,
         user: process.env.DATABASE_USER!,
         password: process.env.DATABASE_PASSWORD!,

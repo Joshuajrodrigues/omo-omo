@@ -85,3 +85,11 @@ export const authenticators = pgTable(
         }),
     })
 )
+
+export const roles = pgTable(
+    "roles", {
+    id: text("id").primaryKey().$defaultFn(() => crypto.randomUUID()),
+    name: text("name").notNull(),
+    createdOn: timestamp("createdOn", { mode: "date" }).defaultNow()
+}
+)
