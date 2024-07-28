@@ -40,7 +40,7 @@ const OAuth = ({ callToAction }: { callToAction: CallToAction }) => {
                     })
                 }}
             >
-                <Button className=' space-x-2 text-base font-semibold        w-64' type="submit">
+                <Button className=' space-x-2 text-base font-semibold w-64' type="submit">
                     <Github />
                     <span className=' text-xl'>
 
