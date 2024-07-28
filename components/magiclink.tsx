@@ -15,6 +15,7 @@ import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { TypographyH3 } from "./ui/typographyH3"
 import { CallToAction } from "./userAuthForm"
+import { signinWithMagickLink } from "@/actions/signin"
 const formSchema = z.object({
     email: z.string().email(),
 })
@@ -30,7 +31,7 @@ const MagicLink = ({ callToAction }: { callToAction: CallToAction }) => {
         },
     })
     async function onSubmit(values: FormValues) {
-
+        signinWithMagickLink(values)
     }
     return (
         <Form {...form} >
