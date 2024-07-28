@@ -1,6 +1,6 @@
 import { auth, signOut } from "@/auth"
 import Link from "next/link"
-
+import { toast } from "sonner"
 
 const Navbar = async () => {
     const session = await auth()
@@ -39,6 +39,7 @@ const Navbar = async () => {
                                         action={async () => {
                                             "use server"
                                             await signOut()
+
                                         }}
                                     >
                                         <button type="submit">SIGN OUT</button>
