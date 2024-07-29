@@ -9,6 +9,8 @@ import {
 } from "@/components/ui/table";
 import { RolesList } from '@/db/queries';
 import { format } from "date-fns";
+import { Edit } from "lucide-react";
+import CreateRole from "./createRole";
 const RolesTable = ({ roles }: { roles: RolesList }) => {
     return (
         <Table>
@@ -17,6 +19,7 @@ const RolesTable = ({ roles }: { roles: RolesList }) => {
                 <TableRow>
                     <TableHead>Role</TableHead>
                     <TableHead>Created on</TableHead>
+                    <TableHead></TableHead>
                 </TableRow>
             </TableHeader>
             <TableBody>
@@ -28,6 +31,9 @@ const RolesTable = ({ roles }: { roles: RolesList }) => {
                                 role?.createdOn &&
                                 <TableCell>{format(role.createdOn, "dd/MM/yyyy")}</TableCell>
                             }
+                            <TableCell>
+                                <CreateRole id={role.id} initialValue={role.name} trigger={<Edit />} action={"Edit"} title={"Edit role name"} />
+                            </TableCell>
                         </TableRow>
                     ))
                 }
