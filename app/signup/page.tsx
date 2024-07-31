@@ -1,6 +1,6 @@
 
 
-import UserAuthForm from "@/components/userAuthForm"
+import UserAuthForm from "@/components/auth/userAuthForm"
 const page = () => {
 
     return (

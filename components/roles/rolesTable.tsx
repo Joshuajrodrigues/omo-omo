@@ -7,10 +7,11 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table";
-import { RolesList } from '@/db/queries';
+
 import { format } from "date-fns";
 import { Edit } from "lucide-react";
 import CreateRole from "./createRole";
+import { RolesList } from "@/db/queries";
 const RolesTable = ({ roles }: { roles: RolesList }) => {
     return (
         <Table>

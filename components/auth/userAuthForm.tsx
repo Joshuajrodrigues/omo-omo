@@ -1,11 +1,11 @@
 import Image from "next/image"
 import { TypographyH1 } from "@/components/ui/typographyH1"
 import login from '@/public/img/login.jpg'
-import OAuth from "@/components/oauth"
+import OAuth from "@/components/auth/oauth"
 import { TypographyP } from "@/components/ui/typographyP"
-import { TypographyH4 } from "./ui/typographyH4"
+import { TypographyH4 } from "../ui/typographyH4"
 import Link from "next/link"
-import MagicLink from "@/components/magiclink"
+import MagicLink from "@/components/auth/magiclink"
 export type CallToAction = 'Sign up' | 'Sign in'
 const UserAuthForm = ({ callToAction }: { callToAction: CallToAction }) => {
 

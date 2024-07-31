@@ -1,6 +1,6 @@
 import { auth, signOut } from "@/auth"
 import Link from "next/link"
-import { toast } from "sonner"
+
 
 const Navbar = async () => {
     const session = await auth()

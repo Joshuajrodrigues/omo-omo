@@ -1,6 +1,6 @@
 "use server"
 import { signIn } from "@/auth"
-import { FormValues } from "@/components/magiclink"
+import { FormValues } from "@/components/auth/magiclink"
 
 
 
