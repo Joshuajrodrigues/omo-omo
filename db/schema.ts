@@ -90,7 +90,8 @@ export const roles = pgTable(
     "roles", {
     id: text("id").primaryKey().$defaultFn(() => crypto.randomUUID()),
     name: text("name").unique().notNull(),
-    createdOn: timestamp("createdOn", { mode: "date" }).defaultNow()
+    createdOn: timestamp("createdOn", { mode: "date" }).defaultNow(),
+    isBaseRole: boolean("isBaseRole").default(false)
 }
 )
 

@@ -32,9 +32,12 @@ const RolesTable = ({ roles }: { roles: RolesList }) => {
                                 role?.createdOn &&
                                 <TableCell>{format(role.createdOn, "dd/MM/yyyy")}</TableCell>
                             }
-                            <TableCell>
-                                <CreateRole id={role.id} initialValue={role.name} trigger={<Edit />} action={"Edit"} title={"Edit role name"} />
-                            </TableCell>
+                            {
+                                !role.isBaseRole &&
+                                <TableCell>
+                                    <CreateRole id={role.id} initialValue={role.name} trigger={<Edit />} action={"Edit"} title={"Edit role name"} />
+                                </TableCell>
+                            }
                         </TableRow>
                     ))
                 }

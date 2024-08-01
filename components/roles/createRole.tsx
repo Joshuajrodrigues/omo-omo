@@ -14,6 +14,7 @@ import { createRole, deleteRole, editRole } from '@/actions/roles'
 import { toast } from "sonner"
 import { Trash } from 'lucide-react'
 
+//TODO rename this to something generic
 const CreateRole = ({ trigger, title, initialValue, action, id }:
     { trigger: any, id?: string, title: any, initialValue?: any, action: "Create" | "Edit" }) => {
     const [isOpen, setIsOpen] = useState(false);

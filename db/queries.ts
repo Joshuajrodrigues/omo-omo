@@ -30,6 +30,7 @@ export type RolesList = {
     id: string;
     name: string;
     createdOn: Date | null;
+    isBaseRole: boolean | null;
 }[]
 
 export type UsersList = {
