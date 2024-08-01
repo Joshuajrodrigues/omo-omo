@@ -1,10 +1,8 @@
-import { signIn } from '@/auth'
-import React from 'react'
-import { Button } from './ui/button'
-import Image from 'next/image'
+import { signIn } from '@/auth';
+import { Button } from '@/components/ui/button';
 import { Github } from 'lucide-react';
+import Image from 'next/image';
 import { CallToAction } from './userAuthForm';
-import { TypographyH4 } from './ui/typographyH4';
 const OAuth = ({ callToAction }: { callToAction: CallToAction }) => {
     return (
         <div className=' space-y-2 w-full  '>
