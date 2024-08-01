@@ -31,3 +31,10 @@ export type RolesList = {
     name: string;
     createdOn: Date | null;
 }[]
+
+export type UsersList = {
+    id: string;
+    name: string | null;
+    image: string | null;
+    email: string;
+}[]
