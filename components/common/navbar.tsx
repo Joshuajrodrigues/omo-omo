@@ -1,6 +1,8 @@
 import { auth, signOut } from "@/auth"
 import Link from "next/link"
 
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import Profile from "./profile"
 
 const Navbar = async () => {
     const session = await auth()
@@ -34,17 +36,14 @@ const Navbar = async () => {
                                     MY LIST
                                 </li>
                                 <li>
-
-                                    <form
-                                        action={async () => {
-                                            "use server"
-                                            await signOut()
-
-                                        }}
-                                    >
-                                        <button type="submit">SIGN OUT</button>
-                                    </form>
+                                    <Profile>
+                                        <Avatar className=" cursor-pointer">
+                                            <AvatarImage src={session.user.image || ""} />
+                                            <AvatarFallback>{session.user.name || ""}</AvatarFallback>
+                                        </Avatar>
+                                    </Profile>
                                 </li>
+
                             </>
                     }
 
