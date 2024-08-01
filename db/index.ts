@@ -5,7 +5,7 @@ import fs from "fs"
 config({ path: '.env' });
 
 const client = postgres(process.env.DATABASE_URL!, {
-    prepare: false
+    prepare: false,
 });
 export const db = drizzle(client);
 

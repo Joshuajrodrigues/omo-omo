@@ -1,8 +1,12 @@
+import { getUsersData } from '@/db/queries'
 import React from 'react'
 
-const page = () => {
+const page = async () => {
+    const users = await getUsersData()
     return (
-        <div>users</div>
+        <div>
+            <pre>{JSON.stringify(users, null, 2)}</pre>
+        </div>
     )
 }
 

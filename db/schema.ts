@@ -93,3 +93,9 @@ export const roles = pgTable(
     createdOn: timestamp("createdOn", { mode: "date" }).defaultNow()
 }
 )
+
+export const userRoles = pgTable("userRoles", {
+    id: text("id").primaryKey().$defaultFn(() => crypto.randomUUID()),
+    userId: text("userId").references(() => users.id, { onDelete: "cascade" }),
+    roleId: text("roleId").references(() => roles.id, { onDelete: "cascade" })
+})
