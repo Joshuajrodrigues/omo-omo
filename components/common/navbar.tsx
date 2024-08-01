@@ -7,12 +7,12 @@ import Profile from "./profile"
 const Navbar = async () => {
     const session = await auth()
     return (
-        <header className="flex p-2">
+        <header className="flex p-4 items-center justify-between  ">
             <span>
                 OMO OMO
             </span>
-            <nav className=" ml-auto">
-                <ul className="flex space-x-4 ">
+            <nav className=" ml-auto ">
+                <ul className="flex items-center justify-between space-x-4 ">
                     <li>
                         BROWSE FILMS
                     </li>

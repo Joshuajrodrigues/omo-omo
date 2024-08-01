@@ -7,7 +7,9 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { LogOutIcon } from "lucide-react"
 import { ReactNode } from "react"
+import { Button } from "../ui/button"
 
 const Profile = ({
     children
@@ -19,12 +21,12 @@ const Profile = ({
             <DropdownMenuTrigger>
                 {children}
             </DropdownMenuTrigger>
-            <DropdownMenuContent>
+            <DropdownMenuContent className=" mr-4">
                 <DropdownMenuLabel>My Account</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>Profile</DropdownMenuItem>
-                <DropdownMenuItem>Billing</DropdownMenuItem>
-                <DropdownMenuItem>Team</DropdownMenuItem>
+                <DropdownMenuItem>test</DropdownMenuItem>
+                <DropdownMenuItem>test</DropdownMenuItem>
+                <DropdownMenuItem>test</DropdownMenuItem>
                 <DropdownMenuItem>
                     <form
                         action={async () => {
@@ -33,7 +35,7 @@ const Profile = ({
 
                         }}
                     >
-                        <button type="submit">Sign out</button>
+                        <Button variant={"destructive"} type="submit"> <LogOutIcon /> Sign out</Button>
                     </form>
                 </DropdownMenuItem>
             </DropdownMenuContent>
