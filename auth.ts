@@ -6,11 +6,12 @@ import Resend from "next-auth/providers/resend"
 import { accounts, sessions, users, verificationTokens } from "./db/schema"
 import { getUserRole } from "./actions/users"
 import { AdapterUser } from "next-auth/adapters"
+import { IRole } from "./actions/roles"
 
 declare module 'next-auth' {
     interface Session {
         user: AdapterUser & {
-            roles?: { id: string; name: string }; // Adjust the type as needed
+            roles?: IRole; // Adjust the type as needed
         };
     }
 }

@@ -10,9 +10,7 @@ const Navbar = async () => {
 
 
     const isAdmin = session?.user.roles?.name === "Admin"
-    // if (location.pathname.includes("/admin") && !isAdmin) {
-    //     redirect("/")
-    // }
+
     return (
         <header className="flex p-4 items-center justify-between  ">
             <Link href={'/'}>

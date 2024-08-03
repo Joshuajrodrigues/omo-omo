@@ -1,6 +1,6 @@
 "use client"
 import { IRole, RolesList } from "@/actions/roles"
-import { updateUserRole } from "@/actions/users"
+import { updateUserRole, UsersList } from "@/actions/users"
 import {
     Select,
     SelectContent,
@@ -11,7 +11,7 @@ import {
 
 
 
-export const RoleSelect = ({ defaultValue, roles, userId }: { defaultValue: IRole, roles: RolesList, userId: string }) => {
+export const RoleSelect = ({ defaultValue, roles, userId }: { defaultValue: IRole, roles: RolesList, userId: UsersList[number]['id'] }) => {
     return (
         <Select defaultValue={defaultValue.id} onValueChange={(value) => {
             updateUserRole({

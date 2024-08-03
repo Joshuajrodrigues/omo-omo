@@ -1,6 +1,6 @@
 "use client"
 import { Button } from '@/components/ui/button'
-import React, { useEffect, useState } from 'react'
+import React, { ReactNode, useEffect, useState } from 'react'
 import {
     Dialog,
     DialogContent,
@@ -10,19 +10,19 @@ import {
     DialogTrigger,
 } from "@/components/ui/dialog"
 import { Input } from '@/components/ui/input'
-import { createRole, deleteRole, editRole } from '@/actions/roles'
+import { createRole, deleteRole, editRole, RolesList } from '@/actions/roles'
 import { toast } from "sonner"
 import { Trash } from 'lucide-react'
 
 //TODO rename this to something generic
 const CreateRole = ({ trigger, title, initialValue, action, id }:
-    { trigger: any, id?: string, title: any, initialValue?: any, action: "Create" | "Edit" }) => {
+    { trigger: ReactNode, id?: RolesList[number]['id'], title: string, initialValue?: RolesList[number]['name'], action: "Create" | "Edit" }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [value, setValue] = useState('')
     useEffect(() => {
-        console.log("initialValue", initialValue);
-
-        setValue(initialValue)
+        if (initialValue) {
+            setValue(initialValue)
+        }
     }, [initialValue])
     const handleOpen = () => {
         setIsOpen(true);

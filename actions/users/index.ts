@@ -42,7 +42,7 @@ export const getUserRole = async ({
     userId
 }: {
     userId: string
-}) => {
+}): Promise<IRole | undefined> => {
     try {
         const role = await db.select().from(userRoles).where(eq(
             userRoles.userId, userId
