@@ -30,7 +30,7 @@ const UserTables = ({ users, roles }: { users: UsersList, roles: RolesList }) =>
                                 <TableCell>{user.email}</TableCell>
                             }
                             <TableCell>
-                                <RoleSelect defaultValue={user.role} roles={roles} />
+                                <RoleSelect userId={user.id} defaultValue={user.role} roles={roles} />
 
                             </TableCell>
                         </TableRow>
