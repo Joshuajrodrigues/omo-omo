@@ -1,12 +1,13 @@
 import UserTables from '@/components/users/userTables'
-import { getUsersData } from '@/db/queries'
+import { getRolesData, getUsersData } from '@/db/queries'
 import React from 'react'
 
 const page = async () => {
     const users = await getUsersData()
+    const roles = await getRolesData()
     return (
         <div>
-            <UserTables users={users} />
+            <UserTables roles={roles} users={users} />
         </div>
     )
 }

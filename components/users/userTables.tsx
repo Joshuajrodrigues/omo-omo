@@ -7,8 +7,9 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table";
-import { UsersList } from "@/db/queries";
-const UserTables = ({ users }: { users: UsersList }) => {
+import { RolesList, UsersList } from "@/db/queries";
+import { RoleSelect } from "../roles/roleSelect";
+const UserTables = ({ users, roles }: { users: UsersList, roles: RolesList }) => {
     return (
         <Table>
             <TableCaption>A list of all available roles.</TableCaption>
@@ -29,7 +30,8 @@ const UserTables = ({ users }: { users: UsersList }) => {
                                 <TableCell>{user.email}</TableCell>
                             }
                             <TableCell>
-                                {user.role.name}
+                                <RoleSelect defaultValue={user.role} roles={roles} />
+
                             </TableCell>
                         </TableRow>
                     ))
