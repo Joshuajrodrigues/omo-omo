@@ -1,5 +1,7 @@
+import { getRolesData } from '@/actions/roles'
+import { getUsersData } from '@/actions/users'
 import UserTables from '@/components/users/userTables'
-import { getRolesData, getUsersData } from '@/db/queries'
+
 import React from 'react'
 
 const page = async () => {

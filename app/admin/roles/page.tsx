@@ -1,7 +1,8 @@
 
+import { getRolesData } from '@/actions/roles'
 import CreateRole from '@/components/roles/createRole'
 import RolesTable from '@/components/roles/rolesTable'
-import { getRolesData } from '@/db/queries'
+
 
 
 

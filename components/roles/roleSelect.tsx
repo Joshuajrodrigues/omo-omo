@@ -1,4 +1,5 @@
 "use client"
+import { IRole, RolesList } from "@/actions/roles"
 import { updateUserRole } from "@/actions/users"
 import {
     Select,
@@ -7,7 +8,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select"
-import { IRole, RolesList } from "@/db/queries"
+
 
 
 export const RoleSelect = ({ defaultValue, roles, userId }: { defaultValue: IRole, roles: RolesList, userId: string }) => {

@@ -11,7 +11,8 @@ import {
 import { format } from "date-fns";
 import { Edit } from "lucide-react";
 import CreateRole from "./createRole";
-import { RolesList } from "@/db/queries";
+import { RolesList } from "@/actions/roles";
+
 const RolesTable = ({ roles }: { roles: RolesList }) => {
     return (
         <Table>

@@ -7,8 +7,10 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table";
-import { RolesList, UsersList } from "@/db/queries";
+
 import { RoleSelect } from "../roles/roleSelect";
+import { UsersList } from "@/actions/users";
+import { RolesList } from "@/actions/roles";
 const UserTables = ({ users, roles }: { users: UsersList, roles: RolesList }) => {
     return (
         <Table>
