@@ -15,7 +15,7 @@ export default auth((req) => {
         const newUrl = new URL("/signin", req.nextUrl.origin);
 
 
-        return Response.redirect(newUrl.href);
+        return NextResponse.redirect(newUrl.href);
     }
 
     // Allow the request to proceed if it doesn't match the protected route
