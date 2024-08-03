@@ -29,7 +29,7 @@ const UserTables = ({ users }: { users: UsersList }) => {
                                 <TableCell>{user.email}</TableCell>
                             }
                             <TableCell>
-
+                                {user.role.name}
                             </TableCell>
                         </TableRow>
                     ))
