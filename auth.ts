@@ -3,6 +3,7 @@ import NextAuth from "next-auth"
 import authConfig from "./auth.config"
 import { db } from "./db"
 import Resend from "next-auth/providers/resend"
+import { accounts, sessions, users, verificationTokens } from "./db/schema"
 
 const combinedProviders = [
     ...authConfig.providers,
@@ -12,6 +13,11 @@ const combinedProviders = [
 ];
 export const { handlers, signIn, signOut, auth } = NextAuth({
     providers: combinedProviders,
-    adapter: DrizzleAdapter(db),
+    adapter: DrizzleAdapter(db, {
+        usersTable: users,
+        accountsTable: accounts,
+        sessionsTable: sessions,
+        verificationTokensTable: verificationTokens,
+    }),
     session: { strategy: "jwt" },
 })

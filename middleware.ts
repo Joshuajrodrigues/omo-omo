@@ -16,7 +16,9 @@ export default auth((req) => {
 
     if (!isLoggedIn && req.nextUrl.pathname.startsWith("/admin")) {
         const newUrl = new URL("/signin", req.nextUrl.origin);
-        return Response.redirect(newUrl);
+        console.log("not authoriized,redirected:", newUrl, req.nextUrl.origin);
+
+        return Response.redirect(newUrl.href);
     }
 
     // Allow the request to proceed if it doesn't match the protected route
