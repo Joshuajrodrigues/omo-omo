@@ -3,14 +3,21 @@ import Link from "next/link"
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import Profile from "./profile"
+import { redirect } from "next/navigation"
 
 const Navbar = async () => {
     const session = await auth()
+
+
+    const isAdmin = session?.user.roles?.name === "Admin"
+    // if (location.pathname.includes("/admin") && !isAdmin) {
+    //     redirect("/")
+    // }
     return (
         <header className="flex p-4 items-center justify-between  ">
-            <span>
+            <Link href={'/'}>
                 OMO OMO
-            </span>
+            </Link>
             <nav className=" ml-auto ">
                 <ul className="flex items-center justify-between space-x-4 ">
                     <li>
@@ -36,7 +43,7 @@ const Navbar = async () => {
                                     MY LIST
                                 </li>
                                 <li>
-                                    <Profile>
+                                    <Profile isAdmin={isAdmin}>
                                         <Avatar className=" cursor-pointer">
                                             <AvatarImage src={session.user.image || ""} />
                                             <AvatarFallback>{session.user.name || ""}</AvatarFallback>
@@ -46,8 +53,6 @@ const Navbar = async () => {
 
                             </>
                     }
-
-
                 </ul>
             </nav>
         </header>

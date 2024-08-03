@@ -9,14 +9,11 @@ export const { auth } = NextAuth(authConfig)
 export default auth((req) => {
 
     const isLoggedIn = !!req.auth;
-    console.log("LOGGED IN", isLoggedIn);
-
-    // protected routes = admin/*
-
 
     if (!isLoggedIn && req.nextUrl.pathname.startsWith("/admin")) {
+
         const newUrl = new URL("/signin", req.nextUrl.origin);
-        console.log("not authoriized,redirected:", newUrl, req.nextUrl.origin);
+
 
         return Response.redirect(newUrl.href);
     }

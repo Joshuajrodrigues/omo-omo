@@ -4,7 +4,16 @@ import authConfig from "./auth.config"
 import { db } from "./db"
 import Resend from "next-auth/providers/resend"
 import { accounts, sessions, users, verificationTokens } from "./db/schema"
+import { getUserRole } from "./actions/users"
+import { AdapterUser } from "next-auth/adapters"
 
+declare module 'next-auth' {
+    interface Session {
+        user: AdapterUser & {
+            roles?: { id: string; name: string }; // Adjust the type as needed
+        };
+    }
+}
 const combinedProviders = [
     ...authConfig.providers,
     Resend({
@@ -19,5 +28,12 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         sessionsTable: sessions,
         verificationTokensTable: verificationTokens,
     }),
+    callbacks: {
+        async session({ session, token }) {
+            const roles = await getUserRole({ userId: token.sub! })
+            session.user.roles = roles;
+            return session;
+        }
+    },
     session: { strategy: "jwt" },
 })

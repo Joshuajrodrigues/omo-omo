@@ -14,11 +14,14 @@ import {
 import { LogOutIcon } from "lucide-react"
 import { ReactNode } from "react"
 import { Button } from "../ui/button"
+import Link from "next/link"
 
 const Profile = ({
-    children
+    children,
+    isAdmin = false
 }: {
-    children: ReactNode
+    children: ReactNode,
+    isAdmin: boolean
 }) => {
     return (
         <DropdownMenu modal={false}>
@@ -28,21 +31,24 @@ const Profile = ({
             <DropdownMenuContent className=" mr-4">
                 <DropdownMenuLabel>My Account</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuSub>
-                    <DropdownMenuSubTrigger>
-                        <span>Admin</span>
-                    </DropdownMenuSubTrigger>
-                    <DropdownMenuPortal>
-                        <DropdownMenuSubContent>
-                            <DropdownMenuItem>
-                                <span>Manage users</span>
-                            </DropdownMenuItem>
-                            <DropdownMenuItem>
-                                <span>Manage roles</span>
-                            </DropdownMenuItem>
-                        </DropdownMenuSubContent>
-                    </DropdownMenuPortal>
-                </DropdownMenuSub>
+                {
+                    isAdmin &&
+                    <DropdownMenuSub>
+                        <DropdownMenuSubTrigger>
+                            <span>Admin</span>
+                        </DropdownMenuSubTrigger>
+                        <DropdownMenuPortal>
+                            <DropdownMenuSubContent>
+                                <DropdownMenuItem>
+                                    <Link href={'/admin/users'}>Manage users</Link>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem>
+                                    <Link href={'/admin/roles'}>Manage roles</Link>
+                                </DropdownMenuItem>
+                            </DropdownMenuSubContent>
+                        </DropdownMenuPortal>
+                    </DropdownMenuSub>
+                }
 
                 <DropdownMenuItem>test</DropdownMenuItem>
                 <DropdownMenuItem>test</DropdownMenuItem>

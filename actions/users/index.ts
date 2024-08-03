@@ -1,20 +1,30 @@
 "use server"
 import { db } from "@/db"
-import { userRoles } from "@/db/schema"
+import { roles, userRoles } from "@/db/schema"
 import { eq } from "drizzle-orm"
 
 
 
 export const getUserRole = async ({
-    userRole
+    userId
 }: {
-    userRole: string
+    userId: string
 }) => {
     try {
         const role = await db.select().from(userRoles).where(eq(
-            userRoles.userId, userRole
-        )).execute()
-        return role
+            userRoles.userId, userId
+        ))
+            .leftJoin(roles, eq(userRoles.roleId, roles.id))
+            .execute()
+        const result = new Map()
+
+        role.forEach(item => {
+            result.set(item.userRoles.id, {
+                id: item.roles?.id,
+                name: item.roles?.name
+            })
+        })
+        return Array.from(result.values())[0]
     } catch (error) {
         console.error("Failed to get user role", error)
     }
