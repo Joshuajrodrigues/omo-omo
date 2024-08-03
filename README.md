@@ -1,5 +1,4 @@
 
 ## chores
 
-roles crud
-posts crud
+find a better way to keep queries/ actions

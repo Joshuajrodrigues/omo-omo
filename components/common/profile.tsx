@@ -4,7 +4,11 @@ import {
     DropdownMenuContent,
     DropdownMenuItem,
     DropdownMenuLabel,
+    DropdownMenuPortal,
     DropdownMenuSeparator,
+    DropdownMenuSub,
+    DropdownMenuSubContent,
+    DropdownMenuSubTrigger,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { LogOutIcon } from "lucide-react"
@@ -24,9 +28,25 @@ const Profile = ({
             <DropdownMenuContent className=" mr-4">
                 <DropdownMenuLabel>My Account</DropdownMenuLabel>
                 <DropdownMenuSeparator />
+                <DropdownMenuSub>
+                    <DropdownMenuSubTrigger>
+                        <span>Admin</span>
+                    </DropdownMenuSubTrigger>
+                    <DropdownMenuPortal>
+                        <DropdownMenuSubContent>
+                            <DropdownMenuItem>
+                                <span>Manage users</span>
+                            </DropdownMenuItem>
+                            <DropdownMenuItem>
+                                <span>Manage roles</span>
+                            </DropdownMenuItem>
+                        </DropdownMenuSubContent>
+                    </DropdownMenuPortal>
+                </DropdownMenuSub>
+
                 <DropdownMenuItem>test</DropdownMenuItem>
                 <DropdownMenuItem>test</DropdownMenuItem>
-                <DropdownMenuItem>test</DropdownMenuItem>
+                <DropdownMenuSeparator />
                 <DropdownMenuItem>
                     <form
                         action={async () => {
