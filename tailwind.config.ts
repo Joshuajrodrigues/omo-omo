@@ -23,8 +23,8 @@ const config = {
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
-        end: "hsl(var(--hover-gradient-from))",
-        start: "hsl(var(--hover-gradient-to))",
+        hoverend: "hsl(var(--hover-gradient-from))",
+        hoverstart: "hsl(var(--hover-gradient-to))",
         foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "hsl(var(--primary))",

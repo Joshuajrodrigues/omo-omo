@@ -13,7 +13,7 @@ const UserAuthForm = ({ callToAction }: { callToAction: CallToAction }) => {
         <div  >
             <Image src={login} fill className=" object-cover" placeholder="blur" alt="movie theater" />
 
-            <div className="lg:pl-24 p-2 absolute space-y-8  w-full  text-white text-center inset-0 flex flex-col items-center justify-center lg:items-start lg:text-start lg:justify-end lg:mb-24 ">
+            <div className="lg:pl-24 p-2 absolute space-y-8  w-full  text-center inset-0 flex flex-col items-center justify-center lg:items-start lg:text-start lg:justify-end lg:mb-24 ">
                 <TypographyH1>WELCOME TO <br /> OMO OMO</TypographyH1>
                 <OAuth callToAction={callToAction} />
                 <MagicLink callToAction={callToAction} />

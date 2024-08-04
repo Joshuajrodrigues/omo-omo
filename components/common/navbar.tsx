@@ -50,7 +50,7 @@ export default Navbar
 
 const NavbarLinks = ({ children }: { children: ReactNode }) => {
   return (
-    <li className="hover:bg-gradient-to-tr hover:from-start hover:to-end hover:text-transparent hover:bg-clip-text cursor-pointer ">
+    <li className="hover:bg-gradient-to-tr hover:from-hoverstart hover:to-hoverend hover:text-transparent hover:bg-clip-text hover:cursor-pointer ">
       {children}
     </li>
   )
