@@ -4,51 +4,40 @@ import Link from "next/link"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import Profile from "./profile"
 import { redirect } from "next/navigation"
+import { ReactNode } from "react"
 
 const Navbar = async () => {
   const session = await auth()
-
-
   const isAdmin = session?.user.roles?.name === "Admin"
 
   return (
-    <header className="flex px-20 py-7 items-center justify-between  ">
+    <header className="flex  px-10 sm:px-20 py-7 items-center justify-between  ">
       <Link href={'/'} className=" text-2xl font-bold ">
         OMO OMO
       </Link>
       <nav className=" ml-auto text-sm font-normal ">
-        <ul className="flex items-center justify-between space-x-6 ">
-          <li>
-            BROWSE FILMS
-          </li>
+        <ul className="flex items-center justify-between space-x-3 font-semibold sm:space-x-6 ">
+          <NavbarLinks children={" BROWSE FILMS"} />
           {
             !session?.user ? <>
-              <li>
-                <Link href={'/signin'}>
-                  SIGN IN
-                </Link>
-              </li>
-              <li>
-                <Link href={'/signup'}>
-                  SIGN UP
-                </Link>
-              </li>
+              <NavbarLinks children={<Link href={'/signin'}>
+                SIGN IN
+              </Link>} />
+              <NavbarLinks children={<Link href={'/signup'}>
+                SIGN UP
+              </Link>} />
             </>
-
               :
               <>
-                <li>
-                  MY LIST
-                </li>
-                <li>
+                <NavbarLinks children={"MY LIST"} />
+                <NavbarLinks children={
                   <Profile isAdmin={isAdmin}>
                     <Avatar className=" cursor-pointer">
                       <AvatarImage src={session.user.image || ""} />
                       <AvatarFallback>{session.user.name || ""}</AvatarFallback>
                     </Avatar>
                   </Profile>
-                </li>
-
+                } />
               </>
           }
         </ul>
@@ -58,3 +47,11 @@ const Navbar = async () => {
 }
 
 export default Navbar
+
+const NavbarLinks = ({ children }: { children: ReactNode }) => {
+  return (
+    <li className="hover:bg-gradient-to-tr hover:from-start hover:to-end hover:text-transparent hover:bg-clip-text cursor-pointer ">
+      {children}
+    </li>
+  )
+}

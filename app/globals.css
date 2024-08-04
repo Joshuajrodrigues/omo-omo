@@ -5,6 +5,8 @@
 @layer base {
     :root {
         --background: 0 0% 0%;
+        --hover-gradient-from: 267 84% 81%;
+        --hover-gradient-to: 343 81% 75%;
         --foreground: 240 10% 3.9%;
         --card: 0 0% 100%;
         --card-foreground: 240 10% 3.9%;
