@@ -18,9 +18,8 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={dmSans.className}>
+      <body className={dmSans.className + " bg-background text-primary-foreground"}>
         <Navbar />
-
         {children}
         <Toaster />
       </body>
