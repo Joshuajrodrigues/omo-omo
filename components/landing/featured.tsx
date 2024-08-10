@@ -9,7 +9,7 @@ export default function Featured({images}: {images:FeaturedImages }) {
         <div className={" grid grid-cols-3 gap-1 "}>
             {
                 images.map((image) => (
-                    <Image placeholder={"blur"} className={"w-full h-full object-cover "} key={image.id} alt={""}
+                    <Image placeholder={"blur"} className={"w-full h-full object-cover"} key={image.id} alt={""}
                            src={image.img}/>
                 ))
             }

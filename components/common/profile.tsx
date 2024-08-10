@@ -24,12 +24,15 @@ const Profile = ({
     isAdmin: boolean
 }) => {
     return (
-        <DropdownMenu modal={false}>
+        <DropdownMenu modal={false} >
             <DropdownMenuTrigger>
                 {children}
             </DropdownMenuTrigger>
-            <DropdownMenuContent className=" mr-4">
+            <DropdownMenuContent className=" mr-4 " align={"end"} alignOffset={-15} >
                 <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                <DropdownMenuItem className={"sm:hidden"}>Browse films</DropdownMenuItem>
+                <DropdownMenuItem className={"sm:hidden"}>My list</DropdownMenuItem>
+
                 <DropdownMenuSeparator />
                 {
                     isAdmin &&
@@ -54,9 +57,8 @@ const Profile = ({
                     </DropdownMenuSub>
                 }
 
-                <DropdownMenuItem>test</DropdownMenuItem>
-                <DropdownMenuItem>test</DropdownMenuItem>
-                <DropdownMenuSeparator />
+
+
                 <DropdownMenuItem>
                     <form
                         action={async () => {
@@ -65,7 +67,7 @@ const Profile = ({
 
                         }}
                     >
-                        <Button variant={"destructive"} type="submit"> <LogOutIcon /> Sign out</Button>
+                        <Button className={"font-semibold p-0 text-destructive"} variant={"ghost"} type="submit"> <LogOutIcon /> Sign out</Button>
                     </form>
                 </DropdownMenuItem>
             </DropdownMenuContent>

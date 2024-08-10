@@ -1,9 +1,9 @@
-import { auth, signOut } from "@/auth"
+import { auth } from "@/auth"
 import Link from "next/link"
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import Profile from "./profile"
-import { redirect } from "next/navigation"
+
 import { ReactNode } from "react"
 
 const Navbar = async () => {
@@ -17,7 +17,7 @@ const Navbar = async () => {
       </Link>
       <nav className=" ml-auto text-sm font-normal ">
         <ul className="flex items-center justify-between space-x-3 font-semibold sm:space-x-6 ">
-          <NavbarLinks children={" BROWSE FILMS"} />
+          <NavbarLinks className={'hidden sm:block'} children={" BROWSE FILMS"} />
           {
             !session?.user ? <>
               <NavbarLinks children={<Link href={'/signin'}>
@@ -29,7 +29,7 @@ const Navbar = async () => {
             </>
               :
               <>
-                <NavbarLinks children={"MY LIST"} />
+                <NavbarLinks className={'hidden sm:block'} children={"MY LIST"} />
                 <NavbarLinks children={
                   <Profile isAdmin={isAdmin}>
                     <Avatar className=" cursor-pointer">
@@ -48,9 +48,9 @@ const Navbar = async () => {
 
 export default Navbar
 
-const NavbarLinks = ({ children }: { children: ReactNode }) => {
+const NavbarLinks = ({ children,className }: { children: ReactNode,className?:string }) => {
   return (
-    <li className="hover:bg-gradient-to-tr hover:from-hoverstart hover:to-hoverend hover:text-transparent hover:bg-clip-text hover:cursor-pointer ">
+    <li className={`hover:bg-gradient-to-tr hover:from-hoverstart hover:to-hoverend hover:text-transparent hover:bg-clip-text hover:cursor-pointer ${className}`}>
       {children}
     </li>
   )
