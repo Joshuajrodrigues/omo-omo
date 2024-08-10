@@ -11,7 +11,7 @@ const Navbar = async () => {
   const isAdmin = session?.user.roles?.name === "Admin"
 
   return (
-    <header className="flex  px-10 sm:px-20 py-7 items-center justify-between  ">
+    <header className="flex  px-10 sm:px-20 md:py-7 items-center justify-between pb-0 pt-7  ">
       <Link href={'/'} className=" text-2xl font-bold ">
         OMO OMO
       </Link>
