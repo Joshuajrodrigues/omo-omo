@@ -1,7 +1,7 @@
 import { auth } from "@/auth";
-import testImage1 from '../public/test/Hero1.png'
-import testImage2 from '../public/test/Hero3.png'
-import testImage3 from '../public/test/Hero2.png'
+import testImage1 from '@/app/test/Hero1.png'
+import testImage2 from '@/app/test/Hero3.png'
+import testImage3 from '@/app/test/Hero2.png'
 import Link from "next/link";
 import  {StaticImageData} from "next/image";
 import Featured from "@/components/landing/featured";
