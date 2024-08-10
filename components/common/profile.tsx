@@ -40,11 +40,15 @@ const Profile = ({
                         <DropdownMenuPortal>
                             <DropdownMenuSubContent>
                                 <DropdownMenuItem>
+                                    <Link href={'/admin/content'}>Update Content</Link>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem>
                                     <Link href={'/admin/users'}>Manage users</Link>
                                 </DropdownMenuItem>
                                 <DropdownMenuItem>
                                     <Link href={'/admin/roles'}>Manage roles</Link>
                                 </DropdownMenuItem>
+
                             </DropdownMenuSubContent>
                         </DropdownMenuPortal>
                     </DropdownMenuSub>
