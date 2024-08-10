@@ -1,7 +1,7 @@
 import { auth } from "@/auth";
-import testImage1 from '@/public/test/Hero section flier 1.png'
-import testImage2 from '@/public/test/Hero section flier 2.png'
-import testImage3 from '@/public/test/Hero section flier 3.png'
+import testImage1 from '@/public/test/Hero1.png'
+import testImage2 from '@/public/test/Hero3.png'
+import testImage3 from '@/public/test/Hero2.png'
 import Link from "next/link";
 import {TypographyH2} from "@/components/ui/typographyH2";
 import Image from "next/image";
@@ -28,7 +28,7 @@ export default async function Home() {
             <div className={" grid grid-cols-3 gap-1 "}>
             {
                 images.map((image) => (
-                    <Image className={"w-full h-full object-cover "} key={image.id} alt={""} src={image.img} />
+                    <Image placeholder={"blur"} className={"w-full h-full object-cover "} key={image.id} alt={""} src={image.img} />
                 ))
             }
             </div>
