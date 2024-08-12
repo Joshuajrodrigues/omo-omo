@@ -1,12 +1,14 @@
 "use server"
-import { db } from "@/db"
-import { roles, userRoles, users } from "@/db/schema"
-import { eq } from "drizzle-orm"
-import { IRole } from "../roles"
+import {db} from "@/db"
+import {roles, userRoles, users} from "@/db/schema"
+import {eq} from "drizzle-orm"
+import {IRole} from "../roles"
+import {checkIsAdmin} from "@/actions/session";
 
 
 export const getUsersData = async () => {
     try {
+       // await checkIsAdmin()
         const data = await db.select({
             id: users.id,
             name: users.name,
@@ -26,7 +28,7 @@ export const getUsersData = async () => {
                 name: item.name,
                 image: item.image,
                 email: item.email,
-                role: { name: item.roleName, id: item.roleId }
+                role: {name: item.roleName, id: item.roleId}
             })
         })
         return Array.from(userMap.values())
@@ -37,13 +39,13 @@ export const getUsersData = async () => {
 }
 
 
-
 export const getUserRole = async ({
-    userId
-}: {
+                                      userId
+                                  }: {
     userId: string
 }): Promise<IRole | undefined> => {
     try {
+      //  await checkIsAdmin()
         const role = await db.select().from(userRoles).where(eq(
             userRoles.userId, userId
         ))
@@ -64,11 +66,12 @@ export const getUserRole = async ({
 }
 
 export const updateUserRole = async ({
-    newRoleId, userId
-}: {
+                                         newRoleId, userId
+                                     }: {
     newRoleId: string, userId: string
 }) => {
     try {
+        await checkIsAdmin()
         const result = db.update(userRoles).set({
             roleId: newRoleId
         }).where(eq(userRoles.userId, userId)).returning()
