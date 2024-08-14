@@ -43,7 +43,7 @@ const Profile = ({
                         <DropdownMenuPortal>
                             <DropdownMenuSubContent>
                                 <DropdownMenuItem>
-                                    <Link href={'/admin/content'}>Update Content</Link>
+                                    <Link href={'/admin/content'}>Update content</Link>
                                 </DropdownMenuItem>
                                 <DropdownMenuItem>
                                     <Link href={'/admin/users'}>Manage users</Link>
